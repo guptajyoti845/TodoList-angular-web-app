@@ -1,0 +1,39 @@
+<div class="container color-dark">
+  <div class="col">
+    <p>Add TODO Task</p>
+  </div>
+
+  <div class="col">
+    <p>Add TODO List ({{itemNumber}})</p>
+  </div>
+
+</div>
+
+
+<div class="container color-light" >
+  <div class="col">
+    <h2>Use this toolto add your TODO list also to remove it</h2>
+    <form action="">
+
+      <input type="text" class="text" name="projectName" placeholder="please add task here" [(ngModel)]="projectText"/>
+      <br>
+      <input type="submit" class="btn" value="Add Task" (click)="addItem()"/>
+
+    </form>
+  </div>
+
+
+  <div class="col">
+    <div class="project-container" *ngFor="let item of projects;let i = index" (click)="removeItem(i)">
+      {{item}}
+    </div>
+  </div>
+</div>
+
+
+<li class="glyphicon"
+    [class.glyphicon-star-empty]="!isFav"
+    [class.glyphicon-star]="isFav"
+    (click)="onClick()"></li>
+
+
